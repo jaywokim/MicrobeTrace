@@ -61,6 +61,7 @@ jobs:
         with:
           commit_message: testing results from dev push
           branch: gh-pages
+          commit_options: '--force --no-verify --signoff'
           file_pattern: test-report/\*.html
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
