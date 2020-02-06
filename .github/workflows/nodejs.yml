@@ -1,0 +1,72 @@
+name: Node CI
+
+on: 
+  push:
+    paths-ignore:
+    - 'test_notes/**'
+    - 'test/**'
+    - 'test-report/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: npm run setup
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Run end-to-end tests
+        run: npm run test
+        env:
+          CI: true
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+
+      - uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: diff_output
+          path: ./test/__image_snapshots__/__diff_output__
+      
+
+      
+      - name: Commit changed files
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v2.5.0
+        with:
+          commit_message: testing results from dev push
+          branch: gh-pages
+          # file_pattern: report.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+
+# step one add token
+# step two add token as a secret
+
+
+      # - name: Upload to WIKI
+      #   uses: docker://decathlon/wiki-page-creator-action:latest
+      #   env:
+      #     ACTION_MAIL: jwkim1@gmail.com
+      #     ACTION_NAME: jaywokim
+      #     GH_PAT: ${{ secrets.GH_PAT }}
+      #     MD_FOLDER: test_notes
+      #     OWNER: jaywokim
+      #     REPO_NAME: MicrobeTrace061
+      #     SKIP_MD: README.md
+      #     WIKI_PUSH_MESSAGE: WIKITeST

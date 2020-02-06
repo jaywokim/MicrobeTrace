@@ -1,6 +1,10 @@
-
+const { toMatchImageSnapshot } = require('jest-image-snapshot');
+expect.extend({ toMatchImageSnapshot });
 
 const timeout = process.env.SLOWMO ? 30000 : 20000;
+
+
+
 
 beforeAll(async () => {
     page.setBypassCSP(true)
@@ -35,6 +39,10 @@ describe('seed data test', () => {
 
         await page.waitFor(5000);
 
+        const screen = await page.screenshot();
+        expect(screen).toMatchImageSnapshot({
+            updatePassedSnapshot: true
+        });
 
     }, timeout);
 });
