@@ -61,7 +61,7 @@ jobs:
         with:
           commit_message: testing results from dev push
           branch: gh-pages
-          # file_pattern: report.txt
+          file_pattern: \*.html \*.png
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
