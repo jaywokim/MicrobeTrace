@@ -16,9 +16,9 @@ describe('seed data test', () => {
         const version = await page.browser().version();
         console.log(version)
         
-        await page.waitFor(1000);
-        await page.click("#acceptAgreement")
         await page.waitFor(3000);
+        await page.click("#acceptAgreement")
+        await page.waitFor(2000);
         
         // page.on("console", a => {
         //     console.log(a);
