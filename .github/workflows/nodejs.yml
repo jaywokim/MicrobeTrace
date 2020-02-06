@@ -44,6 +44,7 @@ jobs:
           path: ./test/__image_snapshots__/__diff_output__
 
       - name: Push to build branch
+        if: always()
         uses: Automattic/action-commit-to-branch@master
         with:
           branch: 'gh-pages'
