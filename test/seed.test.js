@@ -20,9 +20,9 @@ describe('seed data test', () => {
         await page.click("#acceptAgreement")
         await page.waitFor(3000);
         
-        page.on("console", a => {
-            console.log(a);
-        });
+        // page.on("console", a => {
+        //     console.log(a);
+        // });
 
         await page.waitForSelector('#data-files');
         await page.waitFor(2000);
