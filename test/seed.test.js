@@ -24,11 +24,17 @@ describe('seed data test', () => {
         await page.waitFor(2000);
 
         const inputUploadHandle = await page.$('#data-files');
-        let fileToUpload = 'test_to_upload.gif';
+        let fileToUpload = 'demo/Demo_outbreak_NodeList.csv';
 
         inputUploadHandle.uploadFile(fileToUpload);
 
+        await page.waitFor(1000);
+
+        await page.waitForSelector('#file-footer #launch')
+        await page.click('#file-footer #launch')
+
         await page.waitFor(5000);
+
 
     }, timeout);
 });
