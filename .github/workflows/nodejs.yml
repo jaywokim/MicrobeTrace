@@ -45,15 +45,15 @@ jobs:
       
 
       
-      - name: Commit changed files to dev
-        if: always()
-        uses: stefanzweifel/git-auto-commit-action@v2.5.0
-        with:
-          commit_message: testing results from dev push
-          branch: dev
-          # file_pattern: report.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      # - name: Commit changed files to dev
+      #   if: always()
+      #   uses: stefanzweifel/git-auto-commit-action@v2.5.0
+      #   with:
+      #     commit_message: testing results from dev push
+      #     branch: dev
+      #     # file_pattern: report.txt
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
       - name: Commit changed files to GH PAGES
         if: always()
