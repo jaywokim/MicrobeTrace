@@ -3,9 +3,9 @@ name: Node CI
 on: 
   push:
     paths-ignore:
-    - 'test_notes/**'
-    - 'test/**'
-    - 'test-report/**'
+    - '-test_notes/**'
+    - '-test/**'
+    - '-test-report/**'
 
 jobs:
   build:
