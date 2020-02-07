@@ -8,6 +8,7 @@ const timeout = process.env.SLOWMO ? 30000 : 20000;
 
 beforeAll(async () => {
     page.setBypassCSP(true)
+    // page.setViewport({ width: 1440, height: 900});
     await page.goto('http://localhost:5000/', {waitUntil: 'domcontentloaded'});
 });
 
@@ -38,7 +39,7 @@ describe('seed data test', () => {
         await page.click('#file-footer #launch')
 
         await page.waitFor(5000);
-
+        page.setViewport({ width: 800, height: 600});
         const screen = await page.screenshot();
         expect(screen).toMatchImageSnapshot({
             updatePassedSnapshot: true

@@ -41,7 +41,7 @@
     "compress": "scripts/compress.sh",
     "update": "npm update && npm run bundle",
     "setup": "npm install --only=production && git submodule init && git submodule sync",
-    "test": "jest --testResultsProcessor=./node_modules/jest-html-reporter"
+    "test": "jest"
   },
   "directories": {
     "doc": "docs",
