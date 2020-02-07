@@ -45,12 +45,14 @@ jobs:
 
       - name: Push to build branch
         if: always()
-        uses: Automattic/action-commit-to-branch@master
+        uses: jaywokim/action-commit-to-branch@master
         with:
           branch: 'gh-pages'
           commit_message: 'test results'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Required
+
+
 
       # - name: Commit changed files to GH PAGES 
       #   if: always()
