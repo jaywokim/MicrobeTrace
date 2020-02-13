@@ -41,7 +41,7 @@ jobs:
         if: always()
         with:
           name: diff_output
-          path: ./test/__image_snapshots__/__diff_output__
+          path: ./test-report/diff-output
 
       - name: Push to build branch
         if: always()
