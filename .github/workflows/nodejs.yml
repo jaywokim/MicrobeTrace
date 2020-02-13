@@ -43,29 +43,29 @@ jobs:
           name: diff_output
           path: ./test/__image_snapshots__/__diff_output__
 
-      - name: Push to build branch
-        if: always()
-        uses: jaywokim/action-commit-to-branch@master
-        with:
-          branch: 'gh-pages'
-          commit_message: 'test results'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Required
-
-
-
-
-
-      # - name: Commit changed files to GH PAGES 
+      # - name: Push to build branch
       #   if: always()
-      #   uses: stefanzweifel/git-auto-commit-action@v2.5.0
+      #   uses: jaywokim/action-commit-to-branch@master
       #   with:
-      #     commit_message: testing results from dev push
-      #     branch: gh-pages
-      #     commit_options: '--force --no-verify --signoff'
-      #     file_pattern: test-report/\*.html
+      #     branch: 'gh-pages'
+      #     commit_message: 'test results'
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+      #     GITHUB_TOKEN: ${{ secrets.GH_PAT }} # Required
+
+
+
+
+
+      - name: Commit changed files to GH PAGES 
+        if: always()
+        uses: stefanzweifel/git-auto-commit-action@v2.5.0
+        with:
+          commit_message: testing results from dev push
+          branch: gh-pages
+          commit_options: '--force --no-verify --signoff'
+          file_pattern: test-report/\*.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
 
 
 
