@@ -1,5 +1,5 @@
 {
-    "pageTitle": "HTML Report for MicrobeTrace",
-    "outputPath": "test-report/index.html",
-    "includeFailureMsg": true
-  }
+  "pageTitle": "HTML Report for MicrobeTrace",
+  "boilerplate": "test-report/index.html",
+  "includeFailureMsg": true
+}

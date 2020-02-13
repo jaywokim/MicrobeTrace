@@ -9,11 +9,4 @@ module.exports = {
         }]
         
     ]
-    // preset: "jest-puppeteer",
-    // testMatch: [
-    //   "**/test/**/*.test.js",
-    //   "/test/**/*.test.js",
-    //   "test/**/*.test.js"
-    // ],
-    // verbose: true
 }
