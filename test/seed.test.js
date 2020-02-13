@@ -42,7 +42,8 @@ describe('seed data test', () => {
         page.setViewport({ width: 800, height: 600});
         const screen = await page.screenshot();
         expect(screen).toMatchImageSnapshot({
-            updatePassedSnapshot: true
+            updatePassedSnapshot: true,
+            customDiffDir: './test-report/diff-output'
         });
 
     }, timeout);
