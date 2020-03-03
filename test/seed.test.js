@@ -38,7 +38,7 @@ describe('seed data test', () => {
         await page.waitForSelector('#file-footer #launch')
         await page.click('#file-footer #launch')
 
-        await page.waitFor(5000);
+        await page.waitFor(7000);
         page.setViewport({ width: 800, height: 600});
         const screen = await page.screenshot();
         expect(screen).toMatchImageSnapshot({
