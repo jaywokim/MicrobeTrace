@@ -1,0 +1,1 @@
+// ../src/index.js -> ../dist/index.js
