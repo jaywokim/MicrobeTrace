@@ -8,6 +8,6 @@ module.exports = {
     server: {
         command: "npm run start",
         port: 5000,
-        launchTimeout: 180000
+        launchTimeout: 1800000
     }
 };
