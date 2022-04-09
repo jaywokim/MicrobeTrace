@@ -81,7 +81,7 @@
     "leaflet-image": "^0.4.0",
     "leaflet.markercluster": "^1.4.1",
     "marked": "^0.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "open-iconic": "^1.1.1",
     "papaparse": "^4.6.3",
     "patristic": "^0.5.4",
